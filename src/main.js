@@ -6,7 +6,7 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 import App from './App.vue'
-import Todos from './components/Todos.vue'
+import Todos from './pages/Todos.vue'
 
 /* eslint-disable no-new */
 const router = new VueRouter({

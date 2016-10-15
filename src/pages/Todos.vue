@@ -4,7 +4,7 @@
       v-on:submit="addNewTodo"
     />
     <template v-for="todo in todos">
-      <todo
+      <todo-item
         :todo="todo"
         v-on:toggle="toggleTodo(todo)"
       />
@@ -23,6 +23,7 @@
       addNewTodo: function (text) {
         this.todos.push({
           text,
+          id: new Date().getTime(),
           completed: false
         })
       },
@@ -31,8 +32,8 @@
       }
     },
     components: {
-      Todo: require('./Todo.vue'),
-      AddNewTodo: require('./AddNewTodo.vue')
+      TodoItem: require('../components/TodoItem.vue'),
+      AddNewTodo: require('../components/AddNewTodo.vue')
     }
   }
 </script>
