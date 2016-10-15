@@ -20,9 +20,9 @@
 
 <script>
   export default {
-    props: [
-      'todo'
-    ],
+    props: {
+      todo: Object
+    },
     methods: {
       toggleTodo: function () {
         this.$emit('toggle', this.todo)
