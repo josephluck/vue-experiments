@@ -2,9 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Vuex from 'vuex'
 
-Vue.use(Vuex)
 Vue.use(VueRouter)
 
 /* eslint-disable no-new */
@@ -20,7 +18,7 @@ const router = new VueRouter({
           component: require('./pages/Todos.vue')
         },
         {
-          path: ':id',
+          path: ':todoId',
           component: require('./pages/Todo.vue')
         }
       ]
@@ -28,7 +26,10 @@ const router = new VueRouter({
   ]
 })
 
+import store from './store/Store'
+
 new Vue({
   router,
+  store,
   render: h => h(require('./App.vue'))
 }).$mount('#app')

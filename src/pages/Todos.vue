@@ -13,19 +13,18 @@
 </template>
 
 <script>
-  import Store from '../store/Store'
   export default {
     computed: {
       todos () {
-        return Store.state.todos
+        return this.$store.state.todos
       }
     },
     methods: {
       addNewTodo (text) {
-        Store.commit('addNewTodo', text)
+        this.$store.dispatch('addNewTodo', text)
       },
       toggleTodo (todo) {
-        Store.commit('toggleTodo', todo)
+        this.$store.dispatch('toggleTodo', todo)
       }
     },
     components: {
