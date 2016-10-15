@@ -11,7 +11,20 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   mode: 'history',
   routes: [
-    { path: '/todos', component: require('./pages/Todos.vue') }
+    {
+      path: '/todos',
+      component: { render (h) { return h('router-view') } },
+      children: [
+        {
+          path: '',
+          component: require('./pages/Todos.vue')
+        },
+        {
+          path: ':id',
+          component: require('./pages/Todo.vue')
+        }
+      ]
+    }
   ]
 })
 
