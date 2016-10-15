@@ -13,19 +13,21 @@
 </template>
 
 <script>
+  import Store from '../store/Store'
   export default {
     data () {
       return {
         todos: []
       }
     },
+    computed: {
+      todos () {
+        return Store.state.todos
+      }
+    },
     methods: {
       addNewTodo: function (text) {
-        this.todos.push({
-          text,
-          id: new Date().getTime(),
-          completed: false
-        })
+        Store.commit('addNewTodo', text)
       },
       toggleTodo: function (todo) {
         todo.completed = !todo.completed
