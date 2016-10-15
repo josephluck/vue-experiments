@@ -18,6 +18,7 @@ const router = new VueRouter({
           component: require('./pages/Todos.vue')
         },
         {
+          name: 'todo',
           path: ':todoId',
           component: require('./pages/Todo.vue')
         }

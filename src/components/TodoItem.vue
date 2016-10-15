@@ -10,11 +10,17 @@
       type="checkbox"
       v-on:click="toggleTodo"
     />
-    <span
+    <router-link
+      v-bind:to="{
+        name: 'todo',
+        params: {
+          todoId: todo.id
+        }
+      }"
       class="todo-description"
     >
       {{todo.text}}
-    </span>
+    </router-link>
   </div>
 </template>
 
