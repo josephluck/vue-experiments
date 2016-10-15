@@ -1,5 +1,5 @@
 <template>
-  <li
+  <div
     class="todo"
     :class="{
       completed: todo.completed
@@ -15,7 +15,7 @@
     >
       {{todo.text}}
     </span>
-  </li>
+  </div>
 </template>
 
 <script>

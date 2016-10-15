@@ -1,31 +1,18 @@
 <template>
   <div class="todos">
-    <form
-      @submit="addNewTodo"
-    >
-      <input
-        placeholder="Enter a todo"
-        v-model="addNewTodoText"
+    <add-new-todo
+      v-on:submit="addNewTodo"
+    />
+    <template v-for="todo in todos">
+      <todo
+        :todo="todo"
+        v-on:toggle="toggleTodo(todo)"
       />
-      <button
-        type="submit"
-      >
-        Save
-      </button>
-    </form>
-    <ol>
-      <template v-for="todo in todos">
-        <todo
-          :todo="todo"
-          v-on:toggle="toggleTodo(todo)"
-        />
-      </template>
-    </ol>
+    </template>
   </div>
 </template>
 
 <script>
-  import Todo from './Todo.vue'
   export default {
     data () {
       return {
@@ -34,20 +21,19 @@
       }
     },
     methods: {
-      addNewTodo: function (e) {
-        e.preventDefault()
+      addNewTodo: function (text) {
         this.todos.push({
-          text: this.addNewTodoText.trim(),
+          text,
           completed: false
         })
-        this.addNewTodoText = ''
       },
       toggleTodo: function (todo) {
         todo.completed = !todo.completed
       }
     },
     components: {
-      Todo
+      Todo: require('./Todo.vue'),
+      AddNewTodo: require('./AddNewTodo.vue')
     }
   }
 </script>
