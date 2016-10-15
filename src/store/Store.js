@@ -5,12 +5,16 @@ const Store = new Vuex.Store({
     todos: []
   },
   mutations: {
-    addNewTodo: function (state, text) {
+    addNewTodo (state, text) {
       state.todos.push({
         text,
         id: new Date().getTime(),
-        completed: false
+        completed: false,
+        comments: []
       })
+    },
+    toggleTodo (state, todo) {
+      todo.completed = !todo.completed
     }
   }
 })

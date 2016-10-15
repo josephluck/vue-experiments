@@ -24,7 +24,7 @@
       todo: Object
     },
     methods: {
-      toggleTodo: function () {
+      toggleTodo () {
         this.$emit('toggle', this.todo)
       }
     }

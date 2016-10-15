@@ -15,22 +15,17 @@
 <script>
   import Store from '../store/Store'
   export default {
-    data () {
-      return {
-        todos: []
-      }
-    },
     computed: {
       todos () {
         return Store.state.todos
       }
     },
     methods: {
-      addNewTodo: function (text) {
+      addNewTodo (text) {
         Store.commit('addNewTodo', text)
       },
-      toggleTodo: function (todo) {
-        todo.completed = !todo.completed
+      toggleTodo (todo) {
+        Store.commit('toggleTodo', todo)
       }
     },
     components: {
@@ -39,9 +34,3 @@
     }
   }
 </script>
-
-<style scoped lang="less">
-  h1 {
-    color: #42b983;
-  }
-</style>
